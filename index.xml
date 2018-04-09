@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>/</link>
+    <link>https://danep93.github.io/words-vs-names/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 28 Mar 2018 13:55:10 -0400</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://danep93.github.io/words-vs-names/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is a name? LSTMs</title>
-      <link>/posts/my-first-post/</link>
+      <link>https://danep93.github.io/words-vs-names/posts/my-first-post/</link>
       <pubDate>Wed, 28 Mar 2018 13:55:10 -0400</pubDate>
       
-      <guid>/posts/my-first-post/</guid>
+      <guid>https://danep93.github.io/words-vs-names/posts/my-first-post/</guid>
       <description>TODO:
 include link to notebooks (put on github) make your own sigmoid graph (optional)
 improve code highlighting improve code font size make graph where x axis is length y is ratio 
