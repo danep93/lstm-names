@@ -23,7 +23,7 @@
     
 
     <meta property="og:title" content="What is a name? Intro to Long Short Term Networks" />
-<meta property="og:description" content="Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago, my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net." />
+<meta property="og:description" content="Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://danep93.github.io/lstm-names/posts/what-is-a-name/" />
 
@@ -44,19 +44,19 @@
 
 
 <meta itemprop="name" content="What is a name? Intro to Long Short Term Networks">
-<meta itemprop="description" content="Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago, my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net.">
+<meta itemprop="description" content="Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net.">
 
 
 <meta itemprop="datePublished" content="2018-03-28T13:55:10-04:00" />
 <meta itemprop="dateModified" content="2018-03-28T13:55:10-04:00" />
-<meta itemprop="wordCount" content="3241">
+<meta itemprop="wordCount" content="3265">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="What is a name? Intro to Long Short Term Networks"/>
-<meta name="twitter:description" content="Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago, my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net."/>
+<meta name="twitter:description" content="Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net."/>
 
   </head>
 
@@ -106,7 +106,7 @@
         <p><img src="img/no-name.jpg" alt="no-name" /></p>
 
 <p><br><br>
-Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago, my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net. That is today’s mission: to distinguish names from regular words, and eventually, distinguish male names from female names.</p>
+Today I want to talk about names. Mine has been around since the Old Testament, but recently celebrities have been getting pretty creative with what they call their kids. A few weeks ago my team was assigned a project parsing resumes for new hires, and when I realized that some students actually don&rsquo;t put their name at the top of the page, I thought this would be an interesting problem to solve using a neural net. That is today’s mission: to distinguish names from regular words, and eventually, distinguish male names from female names.</p>
 
 <p>Long Short Term Memory Networks (LSTM) are a type of recurrent neural network that are great at this application; they use context from previous input features to predict what the next output should be. For example, if you wanted to predict the end of the sentence “in France they speak ___”, and use each (tokenized) word of the sentence as a feature, the LSTM would use “France” and “speak” to deduce the sentence ends in “French”. This assumes you have a network that’s already been trained on an extensive corpus of the English language, such as the Glove dataset. That’s exactly what Spacy is; it’s a Natural Language Processing library that’s pre-trained on this general English language corpus and uses sentence context to do things like classify words as adjectives, proper nouns, etc… Unfortunately, without sentence context, Spacy comes up short. When parsing the resume header</p>
 
@@ -116,7 +116,7 @@ JohnSmith68@gmail.com
 <br>
 My mission is to better the world and get paid</p>
 
-<p>Feel free to install spacy (easiest through pip) and test out some sentences. Disclaimer, be extra careful with word capitalization.</p>
+<p>Spacy comes up short and fails to catch john or smith. If you want to try it for yourself then install spacy (easiest through pip) and test out some sentences. Disclaimer, be extra careful with word capitalization.</p>
 
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -135,7 +135,7 @@ print([<span style="color:#a6e22e">token</span> <span style="color:#66d9ef">for<
 </div>
 </div>
 
-<p>I started with a few datasets found off Kaggle which is a really great platform that’s responsible for getting a bunch of people into the space of competitive data science. The datasets I used were a list of male names, female names, and the most common internet words. First thing I did was load them into python as data frame objects and do a little bit of cleanup.</p>
+<p>I started with a few datasets found off Kaggle which is a really great platform that’s gotten a bunch of people in the competitive data science space. The datasets I used were a list of male names, female names, and the most common internet words. First thing I did was load them into python as clean data frame objects.</p>
 
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -196,7 +196,7 @@ print([<span style="color:#a6e22e">token</span> <span style="color:#66d9ef">for<
 
 <p>Where a target value of 1 means “name” and 0 means “internet word”</p>
 
-<p>Neural networks are bad at working with sentences, but great at working with vectors, which is why we’ll continue with our preprocessing by tokenizing each character followed by converting each word into a vector of integers. For example, if we create the mapping of ‘d’=1, ‘o’ = 2, ‘g’ = 3, the word dog will (almost) show up to our network as <1,2,3>. I say almost for two reasons: first because it’s important to give our LSTM vectors of constant size so we pad each vector with a bunch of 0’s until they’re all the same length. Second because before we reach the LSTM layer of our network we want to pass our input through an Embedding Layer. This turns our wasteful vectors (so many wasteful 0’s) into a dense vectors of higher dimensionality. Without wasting more time I give you Deep Learning</p>
+<p>Neural networks are bad at working with sentences but great at working with vectors, which is why we’ll continue with our preprocessing by tokenizing each character, followed by converting each word into a vector of integers. For example, if we create the mapping of ‘d’=1, ‘o’ = 2, ‘g’ = 3, the word dog will (almost) show up to our network as <1,2,3>. I say almost for two reasons: first because it’s important to give our LSTM network only vectors of a constant size. This is why we pad each vector with a bunch of 0’s until they’re all the same length. Second because before we reach the LSTM layer of our network we want to pass our input through an Embedding Layer. This turns our wasteful vectors (so many wasteful 0’s) into dense vectors of higher dimensionality. Without wasting more time I give you Deep Learning</p>
 
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -235,7 +235,7 @@ print([<span style="color:#a6e22e">token</span> <span style="color:#66d9ef">for<
 
 <p>So that was a lot, let’s walk it back a little bit.
 <strong>batch_size</strong> refers to how many iterations (not epochs, but training rows) you process before you update the parameter weights. An <strong>epoch</strong> is a complete pass through of all the training data.
-Our <strong>embedding layer</strong> takes in vectors of size max_word_len, with max_features distinct values, and outputs dense vectors of 128 dimensions each. Our <strong>Dropout layer</strong> dictates that after each batch_size iterations we will randomly drop X% of all neurons in our LSTM layer (where we have max_features neurons) before backpropagation (the part where a neural net goes back and updates it&rsquo;s connection weights). The values outputted by these dropped neurons do not affect the weight changes sent by backpropagation, nor will they be changed by those weight changes. LSTMs are notorious over-fitters so this helps keep classifications unbiased.
+Our <strong>embedding layer</strong> takes in vectors of size max_word_len, with max_features distinct values, and outputs dense vectors of 64 dimensions each. Our <strong>Dropout layer</strong> dictates that after each batch_size iterations we will randomly drop 50% of all neurons in our LSTM layer (where we have max_features neurons) before backpropagation (the part where a neural net goes back and updates it&rsquo;s connection weights). The values outputted by these dropped neurons do not affect the weight changes sent by backpropagation, nor will they be changed by those weight changes. LSTMs are notorious over-fitters so this helps keep classifications unbiased.
  Our <strong>Dense layer</strong> takes our multiple neurons outputted by our LSTM layer and outputs into a single scalar value
 Our Sigmoid Activation layer takes that single value and fits it to a score between the range of 0 and 1, great for binary classification.</p>
 
@@ -249,9 +249,8 @@ Our Sigmoid Activation layer takes that single value and fits it to a score betw
 
 <p>Our graph hasn’t evened out at the end which means our model is relatively under-fitted. We’ll talk more about that later and what we can do to correct it.</p>
 
-<p>Let’s use common metrics and visualizations to determine how well our model performed. We create a data frame with all our info and make a few new ones. Rounded_y_pred takes the sigmoid score and rounds to either 1 or 0 since our y_true values are either 1 or 0, and never in between.</p>
+<p>Let’s use a couple common metrics to determine how well our model performed. We create a DataFrame with all our columns and make a few new ones. Rounded_y_pred takes the sigmoid score and rounds to either 1 or 0 since our y_true values are either 1 or 0, and never in between.</p>
 
-<p>SIXTH IMAGE HERE
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
@@ -267,7 +266,7 @@ print(<span style="color:#e6db74">&#34;accuracy score: &#34;</span>, <span style
 print(<span style="color:#e6db74">&#34;f1 score: &#34;</span>, <span style="color:#a6e22e">str</span>(<span style="color:#a6e22e">f1_score</span>))
 print(<span style="color:#e6db74">&#34;log loss score: &#34;</span>, <span style="color:#a6e22e">str</span>(<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">history</span>[<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">loss</span><span style="color:#960050;background-color:#1e0010">&#39;</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]))</code></pre></td></tr></table>
 </div>
-</div></p>
+</div>
 
 <pre><code>('accuracy score: ', '0.706134564644')
 ('f1 score: ', '0.693076128143')
@@ -281,10 +280,10 @@ print(<span style="color:#e6db74">&#34;log loss score: &#34;</span>, <span style
 <p>You might be confused about the difference between accuracy and f1 score, especially considering we got similar scores for both. Accuracy works well when you assign the same &ldquo;penalty&rdquo; to False Positives (FP) and False Negatives (FN), but this is
 not always the case. Imagine you work for NASA; you&rsquo;d much rather get a false alarm that oxygen levels are dangerously low compared to no alarm. For a more in depth explanation, look up Precision and Recall and how they relate to F1.</p>
 
-<p>While our scores aren&rsquo;t horrible, I think we can do better.</p>
+<p>While our scores aren&rsquo;t bad, I think we can do better.</p>
 
 <p>One of the hardest parts of getting a well performing Neural Net is tuning the hyper parameters just right. While parameters are the weights used to favor certain connections over others, hyperparameters dictate how you’re going to fit your model. Tuning the hyperparameters results in more accurate parameters which gives us a better accuracy. Here we use GridSearchCV to wrap our neural network in a KerasClassifier object that tries every possible combination of hyper parameters that we pass in. There are many more hyper parameters but these are some of the most common for tuning.
-As an added benefit, GridSearchCV employs KFold cross validation instead of holdout validation, which means each one of our training points will be eventually used for training our model. If k = 3, we will perform training 3 times, where each time we use a different 66% of our data for training and 33% for cross validation.</p>
+As an added benefit, GridSearchCV employs KFold cross validation instead of holdout validation, which means each one of our training points will be eventually used for training our model. More training points means more opportunities for our model to learn. If k = 3, we will perform training 3 times, where each time we use a different 66% of our data for training and 33% for cross validation.</p>
 
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -366,23 +365,23 @@ log loss score:  0.315463500042
 
 <p>Exploratory Data Analysis (EDA) is an important part of any data science problem. Rarely do you get perfect classification on your first try. Once you understand what type of problems your model is bad at you can attack the problem at the source</p>
 
-<p>Below I’ve visualized the F1 scores, where green dots are points that are correctly classified while red points are incorrectly classified. Points appearing in the left side of the screen received a sigmoid score of under 0.5, meaning our model predicted they are words, while points on the right side are predicted as names. The worst thing we can see is a bunch of red points at either extreme. Here I’m graphing the sigmoid score against word length and vowel:consonant ratio to see if either of those features affect classification.</p>
+<p>Below I’ve visualized the F1 scores, where green dots are points that are correctly classified while red points are incorrectly classified. Points appearing in the left side of the screen received a sigmoid score of under 0.5, meaning our model predicted they are words, while points on the right side are predicted as names. The worst thing we can see is a bunch of red points at either x-extreme. Here I’m graphing the sigmoid score against word length and vowel:consonant ratio to see if either of those features affect classification.</p>
 
 <p><img src="img/vowel-graph.png" alt="vowel ratio" />
 <img src="img/word-length-graph.png" alt="word length" /></p>
 
-<p>Unfortunately there doesn’t appear to be any correlation between these dependent and independent variables. However, I think this is a great opportunity to point something out. Looking at our graph above, we have a bunch of green points located at both X-axis extremes of the graph; this is great because it means not only did we correctly classify both words and names, but often times we were VERY sure it was a name (sigmoid score ~1) or a word (sigmoid score ~1). Additionally, most of our red dots (incorrectly classified) are located near the 0.5 barrier, which means although we got them wrong, our model never claimed to be sure about it&rsquo;s classification. Let&rsquo;s compare this to the same graph we got before we tuned our hyperparameters</p>
+<p>Unfortunately there doesn’t appear to be any correlation between these dependent and independent variables. However, I think this is a great opportunity to point something out. Looking at our graph above, we have a bunch of green points located at both X-axis extremes of the graph; this is great because it means not only did we correctly classify both words and names, but often times we were VERY sure it was a name (sigmoid score ~1) or a word (sigmoid score ~0). Additionally, most of our red dots (incorrectly classified) are located near the 0.5 barrier, which means although we got them wrong, our model made classifications with a grain of salt. Let&rsquo;s compare this to the same graph we got before we tuned our hyperparameters</p>
 
 <p><img src="img/first-wordlength.png" alt="first word length" /></p>
 
-<p>As you can see, our original model had plenty of correctly classified words and names but all our green points gravitated towards the middle barrier. Out of the thousands of words we passed in, there wasn&rsquo;t a
+<p>As you can see, our original model had plenty of correctly classified words and names but all our green points gravitated towards the middle area. Out of the thousands of words we passed in, there wasn&rsquo;t a
 single one that our model was 80% sure of what it was. I know we already mentioned that our accuracy went up a few percentage points after hyperparameter tuning, but I think this does a better job showing us exactly how much better of a model we ended up with.</p>
 
-<p>We ended up with a model that can distinguish between names and non-names with an accuracy of 83% and a log loss bordering 0.3. Ideally it would have performed a little better, however, I have to cut it some slack. Names are a tough domain, and most of the times I’m not even sure how I feel about specific ones. Liz Lemon has plenty of opinions though</p>
+<p>We ended up with a model that can distinguish between names and non-names with an accuracy of 83% and a log loss bordering 0.3. Ideally it would have performed a little better, however, I have to cut our model some slack. Names are a tough domain, and most of the times I’m not even sure how I feel about certain ones. Liz Lemon has plenty of opinions though</p>
 
 <p><a href="https://www.youtube.com/watch?v=-2hvM-FNOEA">https://www.youtube.com/watch?v=-2hvM-FNOEA</a></p>
 
-<p>What if we wanted to go one step further and not just determine if it’s a name, but a boys name or girls name. A few things change. First off we modify our pandas data wrangling. Here we use scikit-learn get_dummies to one hot encode our vectors. If there are X possible values, one-hot encoding creates X new features, where each row will be populated by all 0’s except for one 1 designating</p>
+<p>What if we wanted to go one step further and not just determine if a word is a name, but a boys name or girls name. A few things change. First off we modify our pandas data wrangling. Here we use scikit-learn get_dummies to one hot encode our vectors. If there are X possible values, one-hot encoding creates X new features, where each row will be populated by all 0’s except for one 1 designating</p>
 
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -445,7 +444,7 @@ single one that our model was 80% sure of what it was. I know we already mention
 </div>
 </div>
 
-<p>We can no longer assign a target of 1 or 0 because it’s no longer a yes no question and answer. Similarly, a single sigmoid score in the range of 0-1 doesn’t tell us much. Why can’t we just separate sigmoid into [0-.33) (.33-.66] (.66 -1] ? Final scores are highly dependent on the gradient that exists at your exact point on an activation function. Sigmoid has a steep curve between X values [-2,2], which means at that region, small changes in X will result in huge changes in Y. This means the function naturally gravitates towards either end of the curve.</p>
+<p>We can no longer assign a target of 1 or 0 because it’s no longer a yes no question. Similarly, a single sigmoid score in the range of 0-1 doesn’t tell us much. Why can’t we just separate sigmoid into [0-.33) (.33-.66] (.66 -1] ? Final scores are highly dependent on the gradient that exists at your exact point on an activation function. Sigmoid has a steep curve between X values [-2,2], which means at that region, small changes in X will result in huge changes in Y. This means the function naturally gravitates towards either end of the curve.</p>
 
 <p>Instead we will use a softmax function, which is the multi class version of sigmoid which assigns probability scores to all classes where all probabilities add to 1. Here is the code for our new three way classification problem</p>
 
@@ -482,7 +481,7 @@ single one that our model was 80% sure of what it was. I know we already mention
 </div>
 </div>
 
-<p>Notice that we changed our Dense(1) layer to Dense(3). That’s because before we wanted to pass a single scalar to our Sigmoid function, but now we want to pass 3 scores to our softmax function, to be converted to probabilities of certainty. Anything different would cause an error complaining on mismatched dimensions. We fit our model and use it to predict values on test data, indicated by y_true columns. Below are a few examples of how our predictions match up against our true test values.</p>
+<p>Notice that we changed our Dense(1) layer to Dense(3). That’s because before we wanted to pass a single scalar to our Sigmoid function, but now we want to pass 3 scores to our softmax function to be converted to probabilities of certainty. Anything different would cause an error complaining about mismatched dimensions. We fit our model and use it to predict values on test data, indicated by y_true columns. Below are a few examples of how our predictions match up against our true test values.</p>
 
 <p><img src="img/softmax-predictions.png" alt="softmax-predictions" /></p>
 
@@ -494,7 +493,7 @@ Also remember, our softmax function turns our three scores (outputted by our Den
 of certainty for classification, where all certainties add up to 100%. Taking the first row as an example, our
 neural network is 18% sure that the word &ldquo;usually&rdquo; is a boys name, 20% sure it&rsquo;s a girls name, and 62% sure it&rsquo;s
 an internet word. In softmax world, we go with whatever classification has the highest confidence, which here is resoundingly
-class 3, or belonging to an internet word. The &ldquo;flat y_true&rdquo; column indicates the index of the nonzero value which indicates the class, while flat y_pred gives you the index of the maximum element in y_pred, which is the predicted classification.</p>
+class 3, or belonging to an internet word. The &ldquo;flat y_true&rdquo; column indicates the index of the nonzero value which gives us the class, while flat y_pred gives you the index of the maximum element in y_pred, which is the predicted classification.</p>
 
 <p>Here are some more examples in case you want to continue to pit yourself against a machine</p>
 
@@ -521,7 +520,7 @@ meaning gray haired heroine. That name is <em>so hot right now</em>.</p>
 <p>While our overall accuracy went down after switching from two-way to three-way classification, it makes sense. While initially our model had a 50% chance of getting any prediction correct, now it has a 33% chance, and there are many names where it’s a toss up (Taylor, Charlie, Alex ect&hellip;). In fact, let’s try some of those out.</p>
 
 <p>First, it&rsquo;s important to ensure that none of these &ldquo;testing&rdquo; words appear in our training dataset. Otherwise
-it&rsquo;s cheating, because our model has already seen them and seen the correct label</p>
+it&rsquo;s cheating because our model has already seen them and seen the correct label</p>
 
 <p><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -546,7 +545,7 @@ print(<span style="color:#a6e22e">list</span>(<span style="color:#a6e22e">in_tra
 </div>
 </div></p>
 
-<p>Now we know that we can&rsquo;t test our model on Charlie, Taylor, or Alexander. Moving forwards, let&rsquo;s see what our model (which correctly called Grissel btw) tells us about these other names</p>
+<p>Now we know that we can&rsquo;t test our model on Charlie, Taylor, or Alexander. Moving forwards, let&rsquo;s see what our model (which correctly called Grissel by the way) tells us about these other names</p>
 
 <p><img src="img/final-testing-names.png" alt="final-testing-names" /></p>
 
@@ -557,9 +556,7 @@ Journey
 Racer
 Java</p>
 
-<p>Referenced below are all notebooks used in this blogpost. Want to try your own words? Check out plug-n-chug-softmax.</p>
-
-<p>And there you have it! Today we learned what it takes to reformat and preprocess your data, pass through an LSTM network, perform grid search cross validation to perfect hyper parameters, and evaluate your results. Thank you for reading, if you’ve gotten this far you should know I lied, all four of those names belong to real celebrity babies. A special thanks to Domenic Puzio <a href="https://www.linkedin.com/in/domenicpuzio/">https://www.linkedin.com/in/domenicpuzio/</a> for helping me get started and machinelearningmastery for covering every topic under the sun.</p>
+<p>And there you have it! Today we learned what it takes to reformat and preprocess your data, pass through an LSTM network, perform grid search cross validation to perfect hyper parameters, and evaluate results. Thank you for reading, if you’ve gotten this far you should know I lied, all four of those names belong to real celebrity babies. Here you can find all notebooks used in this blogpost &ndash;&gt; <a href="https://github.com/danep93/lstm-names/notebooks">https://github.com/danep93/lstm-names/notebooks</a>. Want to try your own words? Check out plug-n-chug-softmax. A special thanks to Domenic Puzio <a href="https://www.linkedin.com/in/domenicpuzio/">https://www.linkedin.com/in/domenicpuzio/</a> for helping me get started and machinelearningmastery for covering every topic under the sun.</p>
 
       </div>
     </article>
